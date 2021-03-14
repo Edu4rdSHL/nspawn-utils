@@ -3,8 +3,7 @@
  Description=Generate list of available images for hub.nspawn.org
 
 [Timer]
- OnUnitActiveSec=5m
+ OnUnitActiveSec=1m
 
 [Install]
  WantedBy=timers.target
-
