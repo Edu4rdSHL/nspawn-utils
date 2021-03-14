@@ -1,0 +1,13 @@
+# /etc/systemd/system/nspawn-generate-list.service
+[Unit]
+Description=Generate list of available machines for hub.nspawn.org
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/html/storage
+Restart=always
+RestartSec=10
+ExecStart=/usr/bin/nspawn-list-generator
+
+[Install]
+WantedBy=default.target
