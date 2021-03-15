@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$1" == "static" ]; then
-  find -maxdepth 3 -not -path '*/\.*' -not -empty -print |cut -c 3- |tr '/' ' ' |sort |awk 'NF == 3' |tr ' ' '/' | awk -F/ 'BEGIN {printf("%13s | %10s | %33s \n" ,"DISTRO", "VERSION", "INIT COMMAND")} {printf "%13s | %10s | nspawn -i %s/%s/%s\n", $1, $2, $1, $2, $3}' > /var/www/html/storage/list.txt
+  find -maxdepth 3 -not -path '*/\.*' -not -empty -print |cut -c 3- |tr '/' ' ' |sort |awk 'NF == 3' |tr ' ' '/' | awk -F/ 'BEGIN {printf("%13s | %10s | %33s \n%13s | %10s | %33s\n" ,"DISTRO", "VERSION", "INIT COMMAND", "-------------", "----------", "---------------------------------")} {printf "%13s | %10s | nspawn -i %s/%s/%s\n", $1, $2, $1, $2, $3}' > /var/www/html/storage/list.txt
 elif [ "$1" == "website" ]; then
   cd /var/www/html/nspawn.org/
   git pull
